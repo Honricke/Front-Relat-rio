@@ -127,7 +127,7 @@ section#main_box section#box-short div.data_short {
 }
 
 @media (min-width: 1400px) {
-  section#box-long {
+  section#box-long, span {
     font-size: min(27px, 1.8vw);
   }
   h4 {
@@ -138,7 +138,7 @@ section#main_box section#box-short div.data_short {
   h4 {
     font-size: max(10px, 1.4vw);
   }
-  section#box-long {
+  section#box-long, span {
     font-size: max(15px, 1.8vw);
   }
 }
