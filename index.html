@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./style/index.css">
+
+    <title>Relatório de Dados</title>
+</head>
+<body>
+    <main id="root">
+        <header id="filter">
+            <div class="data_box">
+                <p class="filter_text">DE:</p>&nbsp&nbsp
+                <input type="date" name="date_from" class="data">
+            </div>
+            <div class="data_box">
+                <p class="filter_text">ATÉ:</p>
+                <input type="date" name="date_to" class="data">
+            </div>
+            <button id="filter_button">Filtrar</button>
+        </header>
+        <section id="main_box">
+            <section id="box-long">
+                <div class="data_long">Acerto no primeiro:&nbsp<span>5.5</span></div>
+                <div class="data_long">Acerto no segundo:&nbsp<span></span></div>
+                <div class="data_long">Acerto no terceiro:&nbsp<span></span></div>
+                <div class="data_long">Over 2.5 com 3.5:&nbsp<span></span></div>
+                <div class="data_long">Over 2.5 com ambas:&nbsp<span></span></div>
+                <div class="data_long">Ambas com 3.5:&nbsp<span></span></div>
+            </section>
+            <section id="box-short">
+                <div class="data_short"><h4>Assertividade Total:</h4><span>98.5%</span></div>
+                <div class="data_short"><h4>Assertividade 2.5:</h4><span></span></div>
+                <div class="data_short"><h4>Assertividade ambas:</h4><span></span></div>
+                <div class="data_short"><h4>Melhor sequência:</h4><span></span></div>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
