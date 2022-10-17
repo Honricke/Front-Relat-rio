@@ -10,39 +10,63 @@
 
 body, html {
   width: 100%;
-  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
   background-color: #F4F7FF;
 }
 
 main#root {
-  height: 100%;
-  display: grid;
-  grid-template-rows: 20% 80%;
-  justify-items: center;
-  align-items: center;
-  grid-gap: 10px;
+  width: 100%;
+  padding: 20px 0;
 }
 
-header#filter {
+form#filter {
   width: 75%;
-  min-width: 555px;
+  min-width: min(555px, 90%);
   max-width: 600px;
   padding: 15px 30px;
+  margin: 10px auto;
+  margin-bottom: 40px;
   border-radius: 10px;
   background-color: #fff;
   box-sizing: border-box;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-rows: 1fr 5fr 1fr;
+  grid-gap: 30px;
   grid-row: 1/2;
 }
-header#filter div.data_box {
+form#filter section#padrao_box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-column: 1/3;
+}
+form#filter section#padrao_box label.padrao_check {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-height: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #47BFB9 0%, #53ddd6 100%);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+form#filter section#padrao_box label.padrao_check:hover {
+  cursor: pointer;
+}
+form#filter div.data_box {
   display: flex;
   align-items: center;
   justify-content: center;
+  grid-row: 1/2;
 }
-header#filter div.data_box input.data {
+form#filter div.data_box input.data {
   min-width: 100px;
   margin: 0 10px;
   border-radius: 5px;
@@ -51,83 +75,75 @@ header#filter div.data_box input.data {
   background: linear-gradient(90deg, #47BFB9 0%, #53ddd6 100%);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
-header#filter div.data_box p.filter_text {
+form#filter div.data_box p.filter_text {
   margin: 0 10px;
   color: #969696;
 }
-header#filter button#filter_button {
+form#filter button#filter_button {
   border-radius: 5px;
   padding: 5px 15px;
   margin-left: 10px;
   color: #fff;
   background: linear-gradient(90deg, #2878D9 0%, #3792FF 100%);
+  grid-row: 3/4;
+  grid-column: 1/3;
 }
-header#filter button#filter_button:hover {
+form#filter button#filter_button:hover {
   cursor: pointer;
 }
 
 section#main_box {
   width: 75%;
-  min-width: 350px;
-  max-width: 1000px;
+  min-width: min(350px, 90%);
+  max-width: 1200px;
   min-height: max(300px, 50%);
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 40px;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
+  max-height: 75%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  grid-row: 2/3;
+  gap: 35px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 10px auto;
+  padding: 25px;
+  border-radius: 10px;
 }
 section#main_box section#box-long {
-  flex: 65%;
-  max-height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
-  margin-right: 15px;
+  gap: 5px;
+  width: max(400px, 68%);
+  max-height: 400px;
 }
 section#main_box section#box-long div.data_long {
   display: flex;
   align-items: center;
-  width: 100%;
-  height: max(35px, 3.9vw);
   background: linear-gradient(90deg, #2878D9 0%, #3792FF 100%);
-  box-sizing: border-box;
-  margin: 5px 0;
-  padding-left: 60px;
-  border-radius: 5px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  white-space: nowrap;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 60px;
 }
 section#main_box section#box-short {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
+  max-height: 400px;
+  gap: 10px;
 }
 section#main_box section#box-short div.data_short {
-  flex: 20%;
   aspect-ratio: 2.5/1;
-  max-height: 90px;
-  min-height: 50px;
+  max-width: 225px;
+  min-width: 125px;
   background: linear-gradient(90deg, #47BFB9 0%, #53ddd6 100%);
-  margin: 5px 0;
-  padding: 5px;
-  border-radius: 10px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 5px;
   text-align: center;
   white-space: nowrap;
 }
 
 @media (min-width: 1400px) {
-  section#box-long, span {
+  h3, span {
     font-size: min(27px, 1.8vw);
   }
   h4 {
@@ -138,19 +154,60 @@ section#main_box section#box-short div.data_short {
   h4 {
     font-size: max(10px, 1.4vw);
   }
-  section#box-long, span {
+  h3, span {
     font-size: max(15px, 1.8vw);
   }
 }
-@media (max-width: 600px) {
-  header#filter {
-    min-width: auto;
+@media (min-width: 850px) {
+  section#box-short {
+    display: flex;
     flex-direction: column;
+    max-width: 68%;
   }
-  header#filter div.data_box {
+}
+@media (max-width: 850px) {
+  section#box-short {
+    width: max(400px, 68%);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  h4 {
+    font-size: max(15px, 2vw);
+  }
+  h3 {
+    font-size: max(15px, 2.3vw);
+  }
+  span {
+    font-size: max(20px, 2.3vw);
+  }
+}
+@media (max-width: 600px) {
+  form#filter {
+    grid-template-rows: repeat(2, 1fr) 6fr 1fr;
+    grid-template-columns: 1fr;
+    box-sizing: content-box;
+    padding: 10px;
+  }
+  form#filter section#padrao_box {
+    grid-row: 3/4;
+    grid-template-columns: 1fr;
+  }
+  form#filter div.data_box {
     margin: 5px 0;
   }
-  header#filter button#filter_button {
+  form#filter div:nth-child(2) {
+    grid-row: 2/3;
+  }
+  form#filter button#filter_button {
     margin-top: 10px;
+    margin-left: 0;
+    grid-row: 4/5;
+  }
+  h4 {
+    font-size: max(12px, 2vw);
+  }
+  h3, span {
+    font-size: max(15px, 3.5vw);
   }
 }/*# sourceMappingURL=index.css.map */
