@@ -1,9 +1,9 @@
 window.onload = async () => {
-    const response = await fetch("/getEstrategia")
+    const response = await fetch("/get_estrategias")
     const data = await response.json()
 
     data.forEach(estrategia => {
-        criarPadrao(estrategia.nome, estrategia.percent, estrategia.id)
+        criarPadrao(estrategia.nome, Math.floor(((estrategia.gain)/estrategia.enviados)*100), estrategia.id)
     });
 }
 
@@ -15,7 +15,7 @@ async function sendData(){
     const form = document.getElementById('filter');
     form.addEventListener('submit', formHandler);
 
-    const response = await fetch('/setData',{
+    const response = await fetch('/set_painel',{
         method: 'POST',
         body: new FormData(form)
     })
@@ -33,7 +33,7 @@ function criarPadrao(nome,percent,id){
     newP.innerHTML = nome+': '+percent+"%"
     
     const newRadio = document.createElement("input")
-    newRadio.setAttribute("type","radio")
+    newRadio.setAttribute("type","checkbox")
     newRadio.setAttribute("checked",true)
     newRadio.setAttribute('name',nome.replace(' ',''))
     newRadio.setAttribute('value',id)
